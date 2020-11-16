@@ -3,12 +3,13 @@ import { GlobalContext } from "../contexts/GlobalState";
 
 const AddTransaction = () => {
   const { addTransaction } = useContext(GlobalContext);
-  const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState("");
+  let emptyStr = "";
+  const [description, setDescription] = useState(emptyStr);
+  const [amount, setAmount] = useState(emptyStr);
 
   const submitTransaction = (e) => {
     e.preventDefault();
-    if (description.trim() === "" || amount.trim() === "") {
+    if (description.trim() === emptyStr || amount.trim() === emptyStr) {
       alert("Please detail your transaction");
     } else {
       const newTransaction = {
@@ -18,6 +19,8 @@ const AddTransaction = () => {
       };
 
       addTransaction(newTransaction);
+      setDescription(emptyStr);
+      setAmount(emptyStr);
     }
   };
 
@@ -40,11 +43,16 @@ const AddTransaction = () => {
             Amount:
             <input
               className={
-                amount === "" ? null : amount[0] === "-" ? "minus" : "plus"
+                amount === emptyStr
+                  ? null
+                  : amount[0] === "-"
+                  ? "minus"
+                  : "plus"
               }
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               type="number"
+              step=".01"
               placeholder="Enter amount..."
             />
           </label>
