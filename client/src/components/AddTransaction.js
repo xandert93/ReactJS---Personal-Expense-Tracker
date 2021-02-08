@@ -1,16 +1,16 @@
-import React, { useState, useContext } from "react";
-import { GlobalContext } from "../contexts/GlobalState";
+import React, { useState, useContext } from 'react';
+import { transactionsContext } from '../contexts/transactionsContext';
 
 const AddTransaction = () => {
-  const { addTransaction } = useContext(GlobalContext);
-  let emptyStr = "";
+  const { addTransaction } = useContext(transactionsContext);
+  let emptyStr = '';
   const [description, setDescription] = useState(emptyStr);
   const [amount, setAmount] = useState(emptyStr);
 
   const submitTransaction = (e) => {
     e.preventDefault();
     if (description.trim() === emptyStr || amount.trim() === emptyStr) {
-      alert("Please detail your transaction");
+      alert('Please detail your transaction');
     } else {
       const newTransaction = {
         id: Math.floor(Math.random() * 1000000),
@@ -45,19 +45,19 @@ const AddTransaction = () => {
               className={
                 amount === emptyStr
                   ? null
-                  : amount[0] === "-"
-                  ? "minus"
-                  : "plus"
+                  : amount[0] === '-'
+                  ? 'minus'
+                  : 'plus'
               }
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
               type="number"
               step=".01"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
               placeholder="Enter amount..."
             />
           </label>
         </div>
-        <button className="btn">Add transaction</button>
+        <input type="submit" className="btn" value="Add transaction" />
       </form>
     </>
   );

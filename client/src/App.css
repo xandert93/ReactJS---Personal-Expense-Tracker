@@ -1,6 +1,5 @@
 :root {
-  --custom-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
-    0 1px 2px rgba(0, 0, 0, 0.24);
+  --box-shad-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 * {
@@ -15,7 +14,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   text-align: center;
 }
 
@@ -45,7 +44,7 @@ h4 {
 
 .inc-exp-container {
   background-color: #fff;
-  box-shadow: var(--custom-box-shadow);
+  box-shadow: var(--box-shad-sm);
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -82,25 +81,25 @@ label {
 
 input {
   margin-top: 10px;
-  border: solid 2px rgba(0, 6, 95, 0.371);
+  border: solid 3px rgb(156, 156, 156);
   border-radius: 3px;
   display: block;
   font-size: 16px;
   padding: 10px;
   width: 100%;
-  transition: background 2s ease, border 2s ease;
+  transition: 0.2s ease;
 }
 
 input:focus {
   outline: 0;
 }
 
-input[type="number"].plus {
-  border: green solid 3px;
-  background: linear-gradient(90deg, white, rgba(130, 143, 130, 0.282));
+input[type='number'].plus {
+  border: rgb(0, 255, 0) solid 3px;
+  background: linear-gradient(90deg, white, rgba(120, 177, 120, 0.282));
 }
 
-input[type="number"].minus {
+input[type='number'].minus {
   border: rgb(206, 0, 0) solid 3px;
   background: linear-gradient(90deg, white, rgba(255, 0, 0, 0.282));
 }
@@ -110,7 +109,7 @@ input[type="number"].minus {
   font-size: 16px;
   margin: 10px 0 30px;
   background-color: rgb(0, 4, 130);
-  box-shadow: var(--custom-box-shadow);
+  box-shadow: var(--box-shad-sm);
   color: white;
   border: 0;
   border-radius: 5px;
