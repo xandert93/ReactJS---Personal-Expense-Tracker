@@ -7,7 +7,8 @@
     "devStart": "nodemon server",
     "start": "node server",
     "client": "npm start --prefix client",
-    "devBoth": "concurrently \"npm run devStart\" \"npm run client\""
+    "devBoth": "concurrently \"npm run devStart\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Xander T",
   "license": "MIT",

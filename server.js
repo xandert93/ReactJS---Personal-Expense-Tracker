@@ -1,7 +1,6 @@
 require('dotenv').config({ path: './config/config.env' });
 const PORT = process.env.PORT || 5000;
 const MODE = process.env.NODE_ENV;
-const DB_URL = process.env.DB_URL;
 
 const colors = require('colors');
 const morgan = require('morgan');
