@@ -1,4 +1,4 @@
-const { model, Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const transactionSchema = new Schema({
   description: { type: String, required: [1, 'Please add a description.'] },

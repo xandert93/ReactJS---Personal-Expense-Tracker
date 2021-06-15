@@ -19,7 +19,6 @@ app.use('/api/v1/transactions', transactionsRouter);
 if (MODE === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
-    console.log(__dirname);
     res.sendFile(`${__dirname}/client/build/index.html`);
   });
 }

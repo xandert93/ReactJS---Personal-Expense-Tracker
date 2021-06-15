@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { transactionsContext } from '../contexts/transactionsContext';
+import { transactionsContext } from '../contexts/transactions/transactionsContext';
 import { numberWithCommas } from '../utils/format';
 
 const Transaction = ({ transaction }) => {

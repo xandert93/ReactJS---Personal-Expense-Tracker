@@ -1,14 +1,15 @@
 import React, { useContext, useEffect } from 'react';
-import { transactionsContext } from '../contexts/transactionsContext';
+import { transactionsContext } from '../contexts/transactions/transactionsContext';
 import Transaction from './Transaction';
 
 const TransactionList = () => {
   const { transactions, getTransactions } = useContext(transactionsContext);
 
-  useEffect(() => {
-    getTransactions();
+  useEffect(
+    getTransactions,
     //eslint-disable-next-line
-  }, []);
+    []
+  );
   return (
     <>
       <h3>History</h3>
