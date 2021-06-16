@@ -21,7 +21,7 @@ exports.getTransactions = async (req, res, next) => {
 // @desc     add a transaction
 // @route    POST /api/v1/transactions
 // @access   Public (since no authentication included)
-exports.addTransaction = async (req, res, next) => {
+exports.createTransaction = async (req, res, next) => {
   try {
     const savedTransaction = await new Transaction(req.body).save();
     return res.status(201).json({ success: true, data: savedTransaction });

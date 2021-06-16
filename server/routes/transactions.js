@@ -2,11 +2,11 @@ const { Router } = require('express');
 const router = Router();
 const {
   getTransactions,
-  addTransaction,
+  createTransaction,
   deleteTransaction,
 } = require('../controllers/transactionController');
 
-router.route('/').get(getTransactions).post(addTransaction);
+router.route('/').get(getTransactions).post(createTransaction);
 
 router.route('/:id').delete(deleteTransaction);
 

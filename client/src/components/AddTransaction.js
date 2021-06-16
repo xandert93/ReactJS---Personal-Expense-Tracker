@@ -1,8 +1,10 @@
-import React, { useState, useContext } from 'react';
-import { transactionsContext } from '../contexts/transactions/transactionsContext';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createTransaction } from '../state/transaction/actions';
 
 const AddTransaction = () => {
-  const { addTransaction } = useContext(transactionsContext);
+  const dispatch = useDispatch();
+
   let emptyStr = '';
   const [description, setDescription] = useState(emptyStr);
   const [amount, setAmount] = useState(emptyStr);
@@ -18,7 +20,7 @@ const AddTransaction = () => {
         amount: +amount,
       };
 
-      addTransaction(newTransaction);
+      dispatch(createTransaction(newTransaction));
       setDescription(emptyStr);
       setAmount(emptyStr);
     }

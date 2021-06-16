@@ -1,18 +1,33 @@
-const transactionsReducer = (state, action) => {
+import { SET_ISLOADING, FETCHED, CREATED, DELETED, ERROR } from './types';
+
+const defaultState = {
+  isLoading: true,
+  transactions: [],
+  errMsg: '',
+};
+
+export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'SET_ISLOADING':
+    case SET_ISLOADING:
       return { ...state, isLoading: true };
 
-    case 'GET_TRANSACTIONS':
+    case FETCHED:
       return { ...state, isLoading: false, transactions: action.payload };
 
-    case 'ADD_TRANSACTION':
+    case CREATED:
       return {
         ...state,
         transactions: [...state.transactions, action.payload],
       };
+    // case UPDATE:
+    //   return {
+    //     ...state,
+    //     transactions: state.transactions.map((t) =>
+    //       t._id !== action.payload._id ? t : action.payload
+    //     ),
+    //   };
 
-    case 'DELETE_TRANSACTION':
+    case DELETED:
       return {
         ...state,
         transactions: state.transactions.filter(
@@ -20,12 +35,10 @@ const transactionsReducer = (state, action) => {
         ),
       };
 
-    case 'TRANSACTIONS_ERR':
+    case ERROR:
       return { ...state, isLoading: false, errMsg: action.payload };
 
     default:
       return state;
   }
 };
-
-export default transactionsReducer;

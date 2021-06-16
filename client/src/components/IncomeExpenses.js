@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
-import { transactionsContext } from '../contexts/transactions/transactionsContext';
+import React from 'react';
+import { shallowEqual, useSelector } from 'react-redux';
 import { numberWithCommas } from '../utils/format';
 
 const IncomeExpenses = () => {
-  const { transactions } = useContext(transactionsContext);
+  const transactions = useSelector(
+    ({ transaction }) => transaction.transactions,
+    shallowEqual
+  );
 
   const amounts = transactions.map((transaction) => transaction.amount);
 
